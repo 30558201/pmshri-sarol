@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PM Shri GSSS Sarol | Premium Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ================= PREMIUM DESIGN SYSTEM (MOBILE-FIRST) ================= */
+        :root {
+            /* Corporate Palette */
+            --grad-1: #0f2027;
+            --grad-2: #203a43;
+            --grad-3: #2c5364;
+            --accent: #d4af37;
+            --bg-light: #f8fafc;
+            --card-glass: rgba(255, 255, 255, 0.85);
+            
+            /* Text */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            
+            /* UI Elements */
+            --radius: 12px;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 8px 20px rgba(15, 32, 39, 0.08), 0 0 10px rgba(212, 175, 55, 0.2);
+            --border-glow: rgba(212, 175, 55, 0.5);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* ================= RESET & BASE ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; font-size: 13px; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-main); overflow-x: hidden; line-height: 1.4; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Custom Thin Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg-light); }
+        ::-webkit-scrollbar-thumb { background: var(--grad-3); border-radius: 10px; }
+
+        /* Scroll Progress Bar */
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); z-index: 10000; transition: width 0.1s; }
+
+        /* ================= HEADER & NAV ================= */
+        header {
+            position: fixed; top: 0; width: 100%; height: 60px; /* Compact & Professional */
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); /* Premium Glass Effect */
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 15px; z-index: 9999;
+        }
+        
+        /* Logo Breathing Animation (Subtle & Premium) */
+        .logo-box { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--grad-1); font-size: 1.1rem; letter-spacing: -0.3px; }
+        .logo-box img { 
+            width: 44px; height: 44px; /* Increased Size */
+            border-radius: 50%; 
+            object-fit: cover;
+            animation: logoBreathe 4s infinite ease-in-out; /* Slow & Smooth */
+            border: 1px solid rgba(212, 175, 55, 0.5);
+        }
+        @keyframes logoBreathe {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(212,175,55,0.15)); }
+            50% { transform: scale(1.04); filter: drop-shadow(0 0 10px rgba(212,175,55,0.6)); }
+        }
+
+        /* Hamburger & Menu */
+        .hamburger { font-size: 1.3rem; color: var(--grad-1); background: none; border: none; cursor: pointer; display: block; }
+        .nav-menu {
+            position: fixed; top: 60px; right: -100%; width: 220px; height: calc(100vh - 60px);
+            background: var(--card-glass); backdrop-filter: blur(15px);
+            display: flex; flex-direction: column; padding: 20px; gap: 15px;
+            transition: var(--transition); border-left: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-menu.active { right: 0; }
+        .nav-menu a { font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 1rem; transition: var(--transition); }
+        .nav-menu a:hover { color: var(--accent); padding-left: 5px; }
+
+        /* ================= NOTICE BAR ================= */
+        .notice-bar {
+            margin-top: 60px; background: white; border-bottom: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden; padding: 5px 0; font-size: 0.8rem; font-weight: 600; color: var(--grad-2);
+        }
+        .ticker { display: flex; width: max-content; animation: slideTicker 15s linear infinite; }
+        .ticker span { padding-right: 40px; display: flex; align-items: center; }
+        .badge {
+            background: var(--accent); color: white; padding: 2px 6px;
+            border-radius: 4px; font-size: 0.65rem; margin-right: 6px;
+        }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes slideTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes blinker { 50% { opacity: 0.4; } }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            position: relative; padding: 40px 15px 30px; text-align: center; overflow: hidden;
+            background: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
+            background-size: 200% 200%; animation: gradFlow 8s ease infinite; color: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        @keyframes gradFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        .hero h1 { font-size: 1.8rem; margin-bottom: 5px; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .hero h2 { font-size: 0.9rem; color: var(--accent); font-weight: 500; }
+        .typing-container { font-size: 0.8rem; opacity: 0.9; margin-top: 8px; height: 18px; font-family: 'Inter'; }
+        
+        /* Floating Particles */
+        .particle { position: absolute; background: rgba(255,255,255,0.15); border-radius: 50%; pointer-events: none; animation: floatUp 6s infinite ease-in-out; }
+        @keyframes floatUp { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; } 50% { transform: translateY(-15px) scale(1.2); opacity: 1; } }
+
+        /* ================= GLOBAL GRID & CARDS (MOBILE-FIRST) ================= */
+        section { padding: 30px 15px; max-width: 1200px; margin: 0 auto; position: relative; }
+        .section-title { font-size: 1.25rem; margin-bottom: 15px; color: var(--grad-1); text-align: center; }
+        .section-title span { position: relative; display: inline-block; }
+        .section-title span::after { content: ''; position: absolute; bottom: -4px; left: 20%; width: 60%; height: 2px; background: var(--accent); border-radius: 2px; }
+
+        /* Compact Grid Rules: Mobile 2 cols */
+        .grid-compact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+        .glass-card {
+            background: var(--card-glass); border: 1px solid rgba(0,0,0,0.03);
+            border-radius: var(--radius); padding: 12px;
+            box-shadow: var(--shadow-soft); transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .glass-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); border-color: var(--border-glow); }
+
+        /* ================= SPECIFIC SECTIONS ================= */
+        /* About & Streams */
+        .info-row { display: flex; gap: 6px; font-size: 0.75rem; margin-bottom: 6px; align-items: flex-start; }
+        .info-row i { color: var(--accent); font-size: 0.8rem; margin-top: 2px; width: 14px; text-align: center; }
+        .info-row strong { color: var(--grad-1); display: block; margin-bottom: 1px; }
+
+        .stream-card { text-align: center; font-weight: 600; color: var(--grad-2); padding: 15px 10px; }
+        .stream-card i { font-size: 1.5rem; color: var(--accent); margin-bottom: 8px; display: block; }
+
+        /* Key Facts */
+        .fact-card { text-align: center; padding: 10px 5px; }
+        .fact-card i { font-size: 1.1rem; color: var(--grad-3); margin-bottom: 4px; transition: var(--transition); }
+        .fact-card:hover i { color: var(--accent); transform: scale(1.1); }
+        .fact-num { font-size: 1.1rem; font-weight: 700; color: var(--grad-1); font-family: 'Poppins'; line-height: 1.2; display: flex; justify-content: center; align-items: center; }
+        .fact-label { font-size: 0.6rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-top: 2px; }
+
+        /* Faculty & Search */
+        .search-box { position: relative; margin-bottom: 15px; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
+        .search-box input {
+            width: 100%; padding: 10px 10px 10px 32px; border-radius: 20px; border: 1px solid #e2e8f0;
+            background: white; font-family: 'Inter'; font-size: 0.85rem; outline: none; transition: var(--transition);
+        }
+        .search-box input:focus { border-color: var(--grad-3); box-shadow: 0 0 0 3px rgba(44,83,100,0.1); }
+
+        .faculty-card { text-align: center; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .f-avatar { width: 32px; height: 32px; background: var(--bg-light); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--grad-3); margin-bottom: 6px; font-size: 0.9rem; border: 1px solid transparent; transition: var(--transition); }
+        .faculty-card:hover .f-avatar { border-color: var(--accent); background: white; color: var(--accent); }
+        .f-name { font-size: 0.8rem; font-weight: 700; color: var(--grad-1); line-height: 1.1; margin-bottom: 2px; }
+        .f-subj { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; margin-bottom: 4px; height: 18px; overflow: hidden; }
+        .f-class { font-size: 0.55rem; background: var(--bg-light); padding: 2px 6px; border-radius: 8px; font-weight: 600; color: var(--grad-2); }
+        
+        .badge-voc { position: absolute; top: 4px; right: 4px; background: rgba(212,175,55,0.15); color: #b4850a; font-size: 0.5rem; padding: 2px 4px; border-radius: 4px; font-weight: 700; border: 1px solid rgba(212,175,55,0.4); box-shadow: 0 0 5px rgba(212,175,55,0.4); animation: vocGlow 2s infinite alternate; }
+        @keyframes vocGlow { from { box-shadow: 0 0 2px rgba(212,175,55,0.2); } to { box-shadow: 0 0 8px rgba(212,175,55,0.8); } }
+
+        /* Footer */
+        footer { background: var(--grad-1); color: white; padding: 30px 15px 15px; text-align: center; }
+        .foot-title { color: var(--accent); font-size: 1rem; margin-bottom: 5px; }
+        .foot-text { font-size: 0.75rem; color: #cbd5e1; margin-bottom: 15px; }
+        .socials { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .socials a { width: 28px; height: 28px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 0.8rem; }
+        .socials a:hover { background: var(--accent); color: var(--grad-1); transform: translateY(-2px); }
+        .copy { font-size: 0.65rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; }
+
+        /* ================= MICRO & UTILS ================= */
+        .reveal { opacity: 0; transform: translateY(15px); transition: all 0.5s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        #backTop {
+            position: fixed; bottom: 15px; right: 15px; width: 36px; height: 36px;
+            background: var(--grad-2); color: white; border: none; border-radius: 50%;
+            box-shadow: var(--shadow-glow); cursor: pointer; opacity: 0; visibility: hidden;
+            transition: var(--transition); z-index: 999; display: flex; justify-content: center; align-items: center; font-size: 0.9rem;
+        }
+        #backTop.show { opacity: 1; visibility: visible; }
+
+        /* Side Nav Dots (Hidden on Mobile) */
+        .side-dots { display: none; position: fixed; right: 15px; top: 50%; transform: translateY(-50%); flex-direction: column; gap: 8px; z-index: 999; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; transition: var(--transition); cursor: pointer; }
+        .dot.active, .dot:hover { background: var(--accent); transform: scale(1.3); box-shadow: 0 0 5px var(--accent); }
+
+        /* ================= RESPONSIVE DESIGN ================= */
+        /* Tablet (3 cards per row) */
+        @media (min-width: 600px) {
+            html { font-size: 14px; }
+            .grid-compact { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .search-box { margin-right: 0; }
+        }
+        
+        /* Desktop (4 cards per row, visible menus) */
+        @media (min-width: 900px) {
+            header { padding: 0 40px; height: 65px; } /* Slightly taller on desktop for proportion */
+            .nav-menu { position: static; height: auto; width: auto; flex-direction: row; background: none; backdrop-filter: none; padding: 0; border: none; gap: 20px; }
+            .nav-menu a { border: none; padding: 5px; font-size: 0.85rem; }
+            .notice-bar { margin-top: 65px; }
+            .grid-compact { grid-template-columns: repeat(4, 1fr); gap: 15px; }
+            .side-dots { display: flex; }
+            .hero { padding: 60px 20px 40px; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-progress" id="scrollBar"></div>
+
+    <div class="side-dots">
+        <a href="#hero" class="dot active"></a>
+        <a href="#about" class="dot"></a>
+        <a href="#facts" class="dot"></a>
+        <a href="#faculty" class="dot"></a>
+    </div>
+
+    <header>
+        <div class="logo-box">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczNAbnzt_Bq7bhWX9IF2486EAUu4z4l_NwlCVFHNGXVYzTloRrqwggelsmfcIPlJcuB_UWvsnaXbjLOijkJsawXHwEQU9NwMnJpcJRNsbHmUU-4RD_gn3s68v1gcrRDds60XCofzWMekFjTernJhGcc=w632-h632-s-no-gm" alt="Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'44\' height=\'44\'><circle cx=\'22\' cy=\'22\' r=\'22\' fill=\'%230f2027\'/><text x=\'50%\' y=\'50%\' fill=\'%23d4af37\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>GS</text></svg>'">
+            PM SHRI GSSS Sarol
+        </div>
+        <button class="hamburger" id="hamBtn"><i class="fas fa-bars"></i></button>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#facts">Facilities</a>
+            <a href="#faculty">Faculty</a>
+        </nav>
+    </header>
+
+    <div class="notice-bar">
+        <div class="ticker">
+            <span><span class="badge blink">NEW</span> IT-ITES, Telecom, Physical Education vocational subjects available</span>
+            <span><span class="badge blink">NEW</span> IT-ITES, Telecom, Physical Education vocational subjects available</span>
+        </div>
+    </div>
+
+    <section class="hero" id="hero">
+        <div id="particles"></div>
+        <h1>About Our School</h1>
+        <h2>Excellence in Education Since 1938</h2>
+        <div class="typing-container"><span id="typing"></span><span class="blink">|</span></div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title reveal"><span>School Overview</span></h2>
+        <div class="grid-compact reveal">
+            <div class="glass-card">
+                <div class="info-row"><i class="fas fa-map-marker-alt"></i><div><strong>Location</strong> Kiani Block, Chamba, HP</div></div>
+                <div class="info-row"><i class="fas fa-school"></i><div><strong>Type</strong> Govt. Co-Ed School</div></div>
+            </div>
+            <div class="glass-card">
+                <div class="info-row"><i class="fas fa-calendar-alt"></i><div><strong>Established</strong> 1938</div></div>
+                <div class="info-row"><i class="fas fa-user-graduate"></i><div><strong>Classes</strong> 6th – 12th</div></div>
+                <div class="info-row"><i class="fas fa-language"></i><div><strong>Medium</strong> Hindi & English</div></div>
+            </div>
+            <div class="glass-card" style="grid-column: 1 / -1;">
+                <div class="info-row"><i class="fas fa-mountain"></i><div><strong>Setting</strong> Rural Area but Accessible</div></div>
+                <div class="info-row"><i class="fas fa-chart-line"></i><div><strong>Focus</strong> Academic Excellence + Holistic Growth</div></div>
+                <div class="info-row"><i class="fas fa-landmark"></i><div><strong>Managed By</strong> Dept. of Education</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="streams" style="padding-top:0;">
+        <h2 class="section-title reveal"><span>Streams Offered</span></h2>
+        <div class="grid-compact reveal" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="glass-card stream-card"><i class="fas fa-palette"></i> Arts</div>
+            <div class="glass-card stream-card"><i class="fas fa-flask"></i> Non-Medical</div>
+            <div class="glass-card stream-card"><i class="fas fa-calculator"></i> Commerce</div>
+        </div>
+    </section>
+
+    <section id="facts" style="background: white; border-top: 1px solid rgba(0,0,0,0.03);">
+        <h2 class="section-title reveal"><span>Key Facts</span></h2>
+        <div class="grid-compact reveal">
+            <div class="glass-card fact-card"><i class="fas fa-chalkboard"></i><div class="fact-num"><span class="count-up" data-val="13">0</span>+</div><div class="fact-label">Classrooms</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-chalkboard-teacher"></i><div class="fact-num"><span class="count-up" data-val="28">0</span></div><div class="fact-label">Teachers</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-book"></i><div class="fact-num"><span class="count-up" data-val="3500">0</span>+</div><div class="fact-label">Library Books</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-desktop"></i><div class="fact-num"><span class="count-up" data-val="20">0</span>+</div><div class="fact-label">Computers</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-running"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">Available</div><div class="fact-label">Playground</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-faucet"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">Functional</div><div class="fact-label">Drinking Water</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-restroom"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">B:3 | G:4</div><div class="fact-label">Toilets</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-bolt"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">Available</div><div class="fact-label">Electricity</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-wheelchair"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">Available</div><div class="fact-label">Ramps</div></div>
+            <div class="glass-card fact-card"><i class="fas fa-utensils"></i><div class="fact-num" style="font-size:0.8rem; margin:5px 0;">Provided</div><div class="fact-label">Mid-Day Meal</div></div>
+        </div>
+    </section>
+
+    <section id="faculty">
+        <h2 class="section-title reveal"><span>Our Faculty</span></h2>
+        <div class="search-box reveal">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search by name or subject...">
+        </div>
+        <div class="grid-compact reveal" id="facultyGrid">
+            </div>
+    </section>
+
+    <section id="staff" style="padding-top:0;">
+        <h2 class="section-title reveal"><span>Non-Teaching Staff</span></h2>
+        <div class="grid-compact reveal">
+            <div class="glass-card faculty-card"><div class="f-avatar"><i class="fas fa-book-reader"></i></div><div class="f-name">Sandhya Soorya</div><div class="f-subj">Library Assistant</div></div>
+            <div class="glass-card faculty-card"><div class="f-avatar"><i class="fas fa-user-tie"></i></div><div class="f-name">Tilak Raj</div><div class="f-subj">Superintendent</div></div>
+            <div class="glass-card faculty-card"><div class="f-avatar"><i class="fas fa-briefcase"></i></div><div class="f-name">Desh Raj</div><div class="f-subj">Office Assistant</div></div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 class="foot-title">PM Shri GSSS Sarol</h3>
+        <div class="foot-text">Dept. of Education, Himachal Pradesh<br></div>
+  
+        <div class="copy">© 2026 PM Shri GSSS Sarol. Designed for Excellence.</div>
+    </footer>
+
+    <button id="backTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const hamBtn = document.getElementById('hamBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamBtn.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('.nav-menu a').forEach(l => l.addEventListener('click', () => navMenu.classList.remove('active')));
+
+        // 2. Data Initialization
+        const faculty = [
+            { n: "Karuna Vaid", s: "Business Studies", c: "XI–XII", v: false },
+            { n: "Neeta Sharma", s: "Science", c: "VI–X", v: false },
+            { n: "Om Prakash", s: "Physics", c: "XI–XII", v: false },
+            { n: "Umesh Kumar", s: "Mathematics", c: "XI–XII", v: false },
+            { n: "Anju Rajput", s: "Computer Science", c: "XI–XII", v: false },
+            { n: "Dilip Singh", s: "Drawing", c: "VI–X", v: false },
+            { n: "Renu Chander", s: "English, Social Science", c: "VI–X", v: false },
+            { n: "Puneet Sethi", s: "Physical Education", c: "XI–XII", v: false },
+            { n: "Sher Singh", s: "Political Science", c: "XI–XII", v: false },
+            { n: "Monika Gautam", s: "Chemistry", c: "XI–XII", v: false },
+            { n: "Chanchal Kumari", s: "Hindi", c: "VI–X", v: false },
+            { n: "Savita Devi", s: "Art and Craft", c: "VI–X", v: false },
+            { n: "Mamta Kumari", s: "Hindi", c: "XI–XII", v: false },
+            { n: "Rajesh Kumar", s: "Economics", c: "XI–XII", v: false },
+            { n: "Shalini Kumari", s: "English, Social Science", c: "VI–X", v: false },
+            { n: "Raksha Devi", s: "English, Social Science", c: "VI–X", v: false },
+            { n: "Abhilasha Kumari", s: "History", c: "XI–XII", v: false }, // Updated
+            { n: "Khemraj", s: "Mathematics", c: "VI–X", v: false },
+            { n: "Sanjeev Singh", s: "Geography", c: "XI–XII", v: false },
+            { n: "Sanjay Malhotra", s: "Accounts", c: "XI–XII", v: false },
+            { n: "Parvinder Kumar", s: "English", c: "XI–XII", v: false },
+            { n: "Usha Kumari", s: "Sanskrit", c: "VI–X", v: false },
+            { n: "Seema Kumari", s: "Hindi", c: "VI–X", v: false },
+            { n: "Sunaina Kumari", s: "Computer Science", c: "VI–X", v: false },
+            { n: "Ashraf Ali", s: "Physical Training", c: "VI–X", v: false },
+            { n: "Jitender Thakur", s: "Sports & Physical Ed.", c: "VI–X, XI–XII", v: true },
+            { n: "Babita Kumari Dhiman", s: "IT-ITES", c: "XI–XII", v: true },
+            { n: "Sonali Chawla", s: "Telecom", c: "IX–XII", v: true }
+        ];
+
+        const fGrid = document.getElementById('facultyGrid');
+        const renderF = (data) => {
+            fGrid.innerHTML = data.map(t => `
+                <div class="glass-card faculty-card">
+                    ${t.v ? '<div class="badge-voc">VOC</div>' : ''}
+                    <div class="f-avatar"><i class="fas fa-user"></i></div>
+                    <div class="f-name">${t.n}</div>
+                    <div class="f-subj">${t.s}</div>
+                    <div class="f-class">${t.c}</div>
+                </div>
+            `).join('');
+        };
+        renderF(faculty);
+
+        // 3. Smart Search Filter
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const v = e.target.value.toLowerCase();
+            renderF(faculty.filter(t => t.n.toLowerCase().includes(v) || t.s.toLowerCase().includes(v)));
+        });
+
+        // 4. Scroll Logic (Progress, Back to Top, Nav Dots)
+        const sBar = document.getElementById('scrollBar');
+        const bTop = document.getElementById('backTop');
+        const dots = document.querySelectorAll('.dot');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let winS = document.documentElement.scrollTop;
+            let h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            sBar.style.width = (winS / h) * 100 + "%";
+            
+            if (winS > 200) bTop.classList.add('show'); else bTop.classList.remove('show');
+
+            let current = "";
+            sections.forEach(sec => { if(winS >= (sec.offsetTop - 100)) current = sec.getAttribute('id'); });
+            dots.forEach(d => {
+                d.classList.remove('active');
+                if(d.getAttribute('href').includes(current)) d.classList.add('active');
+            });
+        });
+        bTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // 5. Intersection Observer (Fade Reveal & Counters)
+        let countDone = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if(entry.target.id === 'facts' && !countDone) {
+                        countDone = true;
+                        document.querySelectorAll('.count-up').forEach(el => {
+                            let target = +el.getAttribute('data-val');
+                            if(!target) return;
+                            let c = 0, inc = target / 30;
+                            let timer = setInterval(() => {
+                                c += inc;
+                                if(c >= target) { el.innerText = target; clearInterval(timer); } 
+                                else el.innerText = Math.ceil(c);
+                            }, 30);
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, #facts').forEach(el => observer.observe(el));
+
+        // 6. Typing Animation
+        const txt = ["Building Futures.", "Empowering Rural Education.", "Inspiring Excellence."];
+        let tI = 0, cI = 0, isDel = false, el = document.getElementById('typing');
+        function type() {
+            let cur = txt[tI];
+            if(isDel) { el.innerText = cur.substring(0, cI-1); cI--; }
+            else { el.innerText = cur.substring(0, cI+1); cI++; }
+            
+            if(!isDel && cI === cur.length) { isDel = true; setTimeout(type, 1500); }
+            else if(isDel && cI === 0) { isDel = false; tI = (tI + 1) % txt.length; setTimeout(type, 500); }
+            else setTimeout(type, isDel ? 30 : 60);
+        }
+        type();
+
+        // 7. Floating Particles Generator
+        const pCont = document.getElementById('particles');
+        for(let i=0; i<8; i++){
+            let p = document.createElement('div');
+            p.className = 'particle';
+            let size = Math.random() * 8 + 4;
+            p.style.width = size + 'px'; p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.animationDelay = Math.random() * 3 + 's';
+            pCont.appendChild(p);
+        }
+    </script>
+</body>
+</html>
